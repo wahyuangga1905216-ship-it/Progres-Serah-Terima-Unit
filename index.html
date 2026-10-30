@@ -277,11 +277,151 @@ aside button:hover{transform:translateX(3px)}
 .sc-formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sc-table input{width:76px;min-width:76px;padding:7px}.sc-table .task-name{width:100%;min-width:130px}.sc-table td,.sc-table th{padding:8px 6px}.sc-chart{width:100%;overflow:hidden}.sc-chart svg{display:block;width:100%;height:auto;min-height:260px}.sc-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--tx2);margin-top:8px}.sc-legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:5px}.sc-help{font-size:12px;color:var(--tx2);line-height:1.55}.sc-months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.sc-months label{font-size:11px;color:var(--tx2)}.sc-months input{width:100%;margin-top:4px}.sc-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 @media(max-width:900px){.sc-top{grid-template-columns:1fr 1fr}.sc-formgrid{grid-template-columns:1fr}.sc-months{grid-template-columns:repeat(3,minmax(0,1fr))}.sc-table{min-width:760px}}
 
+
+body.role-viewer aside button:not([data-v=dash]),body.role-viewer #dashScOpen,body.role-viewer #dcard [data-edit],body.role-viewer #dcard [data-open-scurve]{display:none!important}
+/* Dashboard modern */
+aside button.on{background:transparent;color:var(--g1)}aside button{z-index:1}
+.nav-ind{position:absolute;left:0;top:0;width:0;height:0;border-radius:12px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.22);pointer-events:none;z-index:0}.nav-ind.ready{transition:transform .55s cubic-bezier(.34,1.4,.5,1),width .4s,height .4s}
+.banner{position:relative;overflow:hidden}.banner>*{position:relative;z-index:1}
+.banner:before,.banner:after{content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:0;filter:blur(6px)}
+.banner:before{width:340px;height:340px;right:-80px;top:-150px;background:radial-gradient(circle,rgba(110,231,183,.38),transparent 65%);animation:aurora 10s ease-in-out infinite}
+.banner:after{width:280px;height:280px;left:30%;bottom:-170px;background:radial-gradient(circle,rgba(56,189,248,.22),transparent 65%);animation:aurora 13s -4s ease-in-out infinite reverse}
+@keyframes aurora{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,34px) scale(1.18)}}
+.card:not(.mapcard):hover{background-image:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(16,185,129,.1),transparent 65%)}
+.bar i{position:relative;overflow:hidden}.bar i:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:barShine 3s 1.6s infinite}@keyframes barShine{0%{transform:translateX(-100%)}40%,100%{transform:translateX(100%)}}
+.rv{transition:opacity .75s cubic-bezier(.2,.8,.2,1),translate .75s cubic-bezier(.2,.8,.2,1)}.rv:not(.in){opacity:0;translate:0 30px}
+.sc-anim polyline{stroke-dasharray:1;stroke-dashoffset:1;animation:scDraw 1.7s .2s cubic-bezier(.4,0,.2,1) forwards}.sc-anim polyline.act{animation-delay:.9s}
+.sc-anim circle{opacity:0;transform-box:fill-box;transform-origin:center;animation:scPop .5s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:calc(.25s + var(--k,0)*.1s)}
+@keyframes scDraw{to{stroke-dashoffset:0}}@keyframes scPop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.dot.sel{animation:selPulse 1.7s ease-out infinite}@keyframes selPulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.6),0 2px 8px rgba(0,0,0,.3)}100%{box-shadow:0 0 0 18px rgba(16,185,129,0),0 2px 8px rgba(0,0,0,.3)}}
+.mrow{display:flex;gap:6px;align-items:center;margin-bottom:6px}.mno{width:24px;color:var(--tx2);font-size:12px;font-weight:700;text-align:right}.mrow .task-name{flex:1;min-width:0}.tname{font-weight:600}
+#scMasterCard summary{cursor:pointer;font-weight:700;font-size:16px}#scMasterCard[open] summary{margin-bottom:2px}
+/* Login Easton v2 — animasi */
+#loginScreen{position:fixed;inset:0;z-index:99999;display:flex;padding:clamp(12px,3vw,32px);overflow:auto;color:#edf7f1;background:linear-gradient(135deg,#1b4336,#2b5b4a 55%,#1a4033)}
+.login-bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.login-bg .blob{position:absolute;border-radius:50%;animation:lgDrift 18s ease-in-out infinite}.login-bg .b1{width:420px;height:420px;left:-120px;bottom:-140px;background:#2f6652}.login-bg .b2{width:520px;height:520px;right:-160px;top:-200px;background:#2a5846;animation-duration:23s;animation-delay:-6s}.login-bg .b3{width:200px;height:200px;left:55%;bottom:-90px;background:#ffffff0d;animation-delay:-3s}
+@keyframes lgDrift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(34px,-26px) scale(1.08)}}
+.login-bg .bub{position:absolute;bottom:-70px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffffff45,#ffffff12);animation:lgRise linear infinite}
+@keyframes lgRise{0%{transform:translateY(0) scale(.7);opacity:0}12%{opacity:.85}100%{transform:translateY(-115vh) scale(1.15);opacity:0}}
+.login-shell{position:relative;width:100%;min-height:600px;display:grid;grid-template-columns:1.1fr .9fr;border-radius:38px;overflow:hidden;background:linear-gradient(160deg,#3a6a56,#2f5a49);box-shadow:0 30px 90px #04140e66;animation:lgCard .95s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes lgCard{from{opacity:0;transform:translateY(46px) scale(.94)}}
+.login-blob{position:absolute;inset:0;width:100%;height:100%;z-index:0;transform-origin:0 50%;animation:lgBlob 1.2s .1s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes lgBlob{from{transform:scaleX(.3);opacity:0}}
+.login-art{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding:96px 24px 70px 36px}
+.login-brand{position:absolute;left:36px;top:32px;display:flex;align-items:center;gap:12px;max-width:calc(100% - 60px);animation:lgFade .8s .5s backwards}
+@keyframes lgFade{from{opacity:0}}
+.login-logo{flex:none;display:grid;place-items:center;min-width:46px;height:46px}.login-logo svg{display:block}.login-logo.has-img{height:auto}.login-logo img{display:block;max-height:54px;max-width:150px;width:auto;height:auto;object-fit:contain}
+.login-brand b{display:block;font-size:14px;letter-spacing:.07em;line-height:1.2;color:#24493d;text-transform:uppercase}.login-brand small{display:block;font-size:10.5px;color:#5f8274;margin-top:3px}
+.login-bubbles{position:absolute;inset:0;pointer-events:none;transform:translate3d(calc(var(--px,0px)*-.7),calc(var(--py,0px)*-.7),0);transition:transform .3s ease-out}
+.login-bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#cfe4dc 60%,#b9d6cb);opacity:.55;animation:lgFloat 9s ease-in-out infinite,lgFade 1s 1s backwards}
+@keyframes lgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.login-illu{position:relative;z-index:1;width:min(100%,390px);transform:translate3d(var(--px,0px),var(--py,0px),0);transition:transform .3s ease-out}.login-illu svg{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 24px #2f6b5726);overflow:visible}
+.login-illu svg g.il{transform-box:fill-box;transform-origin:50% 100%}.login-illu svg g.il-ground,.login-illu svg g.il-card{transform-origin:50% 50%}
+.il-ground{animation:ilPop .9s .4s cubic-bezier(.2,.8,.2,1) backwards,ilPulse 6s 1.5s ease-in-out infinite}
+.il-h1{animation:ilUp .8s .7s cubic-bezier(.2,.9,.3,1.15) backwards}.il-h2{animation:ilUp .8s .88s cubic-bezier(.2,.9,.3,1.15) backwards}.il-h3{animation:ilUp .8s 1.04s cubic-bezier(.2,.9,.3,1.15) backwards}
+.il-leaf{animation:ilUp .7s 1.2s backwards,ilSway 4.5s 2s ease-in-out infinite}
+.il-pin{animation:ilDrop .9s 1.4s cubic-bezier(.3,1.4,.5,1) backwards,ilBob 2.8s 2.4s ease-in-out infinite}
+.il-card{animation:ilPop .7s 1.55s cubic-bezier(.3,1.4,.5,1) backwards,ilFloat 5s 2.4s ease-in-out infinite}
+.win{animation:winGlow 6s ease-in-out infinite}
+@keyframes ilUp{from{opacity:0;transform:translateY(34px) scaleY(.7)}}@keyframes ilPop{from{opacity:0;transform:scale(.55)}}@keyframes ilDrop{from{opacity:0;transform:translateY(-80px)}}
+@keyframes ilBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes ilFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-9px) rotate(3deg)}}
+@keyframes ilSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}@keyframes ilPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+@keyframes winGlow{0%,100%{fill:#bfdcd2}50%{fill:#ffe7a1}}
+.login-copy{position:absolute;left:36px;bottom:26px;font-size:10px;line-height:1.6;color:#53756a;animation:lgFade .8s 1.2s backwards}
+.login-form-wrap{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:56px clamp(28px,5.5vw,64px) 80px clamp(56px,10vw,116px)}
+.stg{animation:lgUp .75s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.5s + var(--i,0)*.09s)}
+@keyframes lgUp{from{opacity:0;transform:translateY(22px)}}
+.login-form-wrap h1{margin:0 0 26px;font-size:40px;font-weight:700;letter-spacing:-.01em;color:#fff}
+.login-field{display:block;margin:0 0 16px}.login-field>span{display:block;margin:0 0 7px;font-size:14px;font-weight:600;color:#f1f8f4;transition:color .2s}.login-field:focus-within>span{color:#8fd1c8}
+.login-field input{width:100%;box-sizing:border-box;height:46px;padding:0 20px;border:1.5px solid transparent;border-radius:999px;background:#1f4538;color:#f2fbf6;font:inherit;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.login-field input::placeholder{color:#86a99a}.login-field input:focus{border-color:#8fd1c8;background:#1a3d31;box-shadow:0 0 0 4px #8fd1c82e}
+.login-password{position:relative}.login-password input{padding-right:52px}
+.login-password button{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#a9c9bc;cursor:pointer;display:grid;place-items:center;transition:color .2s,background .2s}.login-password button:hover{color:#fff;background:#ffffff14}.login-password button .eye-off{display:none}.login-password button.on .eye{display:none}.login-password button.on .eye-off{display:block}
+.login-forgot{display:block;text-align:right;margin:-6px 8px 18px 0;font-size:11.5px;color:#8fd1c8;text-decoration:underline}
+.login-submit{position:relative;overflow:hidden;width:100%;height:46px;border:0;border-radius:999px;background:#79bdb6;color:#0c3329;font:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
+.login-submit:hover:not(:disabled){background:#8ccbc4;transform:translateY(-2px);box-shadow:0 10px 22px #0c33294d}.login-submit:active:not(:disabled){transform:translateY(0)}
+.login-submit:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#ffffff70,transparent);transform:skewX(-20deg);animation:lgShine 4s 2s infinite}
+@keyframes lgShine{0%{left:-70%}30%,100%{left:140%}}
+.login-submit:disabled{cursor:wait}.login-submit.loading{opacity:.85}.login-submit.ok{background:#9be3b4}
+.ls-spin{display:none;width:15px;height:15px;margin-right:9px;vertical-align:-2px;border:2.5px solid #0c332933;border-top-color:#0c3329;border-radius:50%;animation:lgSpin .7s linear infinite}.login-submit.loading .ls-spin{display:inline-block}
+@keyframes lgSpin{to{transform:rotate(360deg)}}
+.login-submit:focus-visible,.login-forgot:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#loginForm.shake{animation:lgShake .45s}@keyframes lgShake{20%,60%{transform:translateX(-9px)}40%,80%{transform:translateX(9px)}}
+.login-error{min-height:18px;margin:12px 0 0;font-size:12.5px;color:#ffc2b6;text-align:center}.login-error:not(:empty){animation:lgUp .3s}
+.login-note{margin:6px 0 0;padding:10px 14px;border-radius:14px;background:#ffffff14;font-size:12px;line-height:1.5;color:#dcefe6;text-align:center;animation:lgUp .3s}.login-note[hidden]{display:none}
+.login-alt{margin:18px 0 0;text-align:center;font-size:12px;line-height:1.6;color:#d8eae1}.login-alt b{color:#8fd1c8;font-weight:600}
+.login-help{position:absolute;right:30px;bottom:26px;font-size:10px;line-height:1.6;text-align:right;color:#cfe3d9}
+/* sapaan + transisi masuk dashboard */
+#loginWelcome{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .5s .3s}
+#loginWelcome h2{margin:6px 0 0;font-size:clamp(22px,4vw,32px);color:#fff}#loginWelcome p{margin:0;font-size:13px;color:#b9d6cb}
+.lw-ring{width:58px;height:58px;border-radius:50%;border:3px solid #ffffff26;border-top-color:#8fd1c8;animation:lgSpin .9s linear infinite}
+#loginScreen.welcome .login-shell{animation:lgOut .6s cubic-bezier(.5,0,.75,0) forwards}
+@keyframes lgOut{to{opacity:0;transform:scale(.9) translateY(-14px);filter:blur(6px)}}
+#loginScreen.checking .login-shell{animation:none;opacity:0}
+#loginScreen.welcome #loginWelcome,#loginScreen.checking #loginWelcome{opacity:1}
+#loginScreen.welcome #loginWelcome h2,#loginScreen.checking #loginWelcome h2{animation:lgUp .6s .4s backwards}
+#loginScreen.iris{animation:lgIris .95s cubic-bezier(.76,0,.24,1) forwards}#loginScreen.iris #loginWelcome{opacity:0;transition:opacity .25s}
+@keyframes lgIris{from{clip-path:circle(150% at 50% 50%)}to{clip-path:circle(0% at 50% 50%)}}
+body.enter aside{animation:enAside .85s .3s cubic-bezier(.2,.8,.2,1) backwards}
+body.enter aside .logo,body.enter aside button{animation:enSlide .6s cubic-bezier(.2,.8,.2,1) backwards}
+body.enter aside .logo{animation-delay:.55s}body.enter aside button:nth-of-type(1){animation-delay:.68s}body.enter aside button:nth-of-type(2){animation-delay:.76s}body.enter aside button:nth-of-type(3){animation-delay:.84s}body.enter aside button:nth-of-type(4){animation-delay:.92s}body.enter aside button:nth-of-type(5){animation-delay:1s}
+body.enter header{animation:enDrop .7s .45s cubic-bezier(.2,.8,.2,1) backwards}
+body.enter .view.on>*{animation:enRise .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.6s + var(--n,0)*.1s)}
+body.enter #dash .glass>div{animation:enPop .6s cubic-bezier(.3,1.4,.5,1) backwards}
+body.enter #dash .glass>div:nth-child(1){animation-delay:.95s}body.enter #dash .glass>div:nth-child(2){animation-delay:1.03s}body.enter #dash .glass>div:nth-child(3){animation-delay:1.11s}body.enter #dash .glass>div:nth-child(4){animation-delay:1.19s}
+body.enter #cards>*{animation:enRise .7s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(.95s + var(--n,0)*.07s)}
+@keyframes enAside{from{transform:translateX(-100%)}}@keyframes enSlide{from{opacity:0;transform:translateX(-24px)}}@keyframes enDrop{from{opacity:0;transform:translateY(-22px)}}@keyframes enRise{from{opacity:0;transform:translateY(30px) scale(.98)}}@keyframes enPop{from{opacity:0;transform:scale(.8)}}
+.login-tilt{position:relative;z-index:1;width:min(100%,1040px);margin:auto;transform:perspective(1500px) rotateY(calc(var(--rx,0)*1deg)) rotateX(calc(var(--ry,0)*-1deg));transition:transform .3s ease-out}
+.login-field input:focus{animation:lgFocus 1.8s ease-in-out infinite}@keyframes lgFocus{0%,100%{box-shadow:0 0 0 4px #8fd1c82e}50%{box-shadow:0 0 0 7px #8fd1c81a}}
+.ls-check{display:none;margin-right:8px;vertical-align:-3px}.login-submit.ok .ls-check{display:inline-block}.ls-check path{stroke-dasharray:1;stroke-dashoffset:1;animation:scDraw .5s .05s ease forwards}
+.login-submit.ok{animation:okPop .55s cubic-bezier(.3,1.5,.5,1)}@keyframes okPop{0%{transform:scale(.96)}60%{transform:scale(1.05)}100%{transform:none}}
+.lw-logo{display:grid;place-items:center;width:92px;height:92px;border-radius:28px;background:#ffffff1c;border:1px solid #ffffff2e;animation:lwPop .9s .1s cubic-bezier(.3,1.5,.5,1) backwards,lwGlow 2.6s 1s ease-in-out infinite}
+.lw-logo img{max-width:64px;max-height:64px;object-fit:contain}.lw-logo svg{width:58px;height:58px}
+@keyframes lwPop{from{opacity:0;transform:scale(.4) rotate(-12deg)}}@keyframes lwGlow{0%,100%{box-shadow:0 0 0 0 #8fd1c855}50%{box-shadow:0 0 0 22px #8fd1c800}}
+#loginWelcome h2{margin:10px 0 14px!important;display:flex;flex-wrap:wrap;justify-content:center;max-width:90vw}#loginWelcome .ch{display:inline-block;white-space:pre;animation:lwCh .6s calc(.35s + var(--k,0)*.035s) cubic-bezier(.2,.9,.3,1.2) backwards}
+@keyframes lwCh{from{opacity:0;transform:translateY(24px) rotate(6deg)}}
+.lw-bar{width:min(260px,70vw);height:4px;border-radius:99px;background:#ffffff22;overflow:hidden}.lw-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8fd1c8,#d4f6ea);transform-origin:0 50%;animation:lwBar var(--lwdur,1.5s) cubic-bezier(.3,.6,.3,1) forwards}@keyframes lwBar{from{transform:scaleX(.04)}to{transform:scaleX(.9)}}
+#loginScreen.leaving .lw-bar i{animation:none;transform:scaleX(1);transition:transform .25s}
+#loginScreen.leaving #loginWelcome{opacity:0;transform:scale(1.07);transition:opacity .32s,transform .32s}
+.lw-cols{position:fixed;inset:0;z-index:8;display:flex;pointer-events:none;visibility:hidden}
+.lw-cols i{flex:1;margin-right:-1px;background:linear-gradient(135deg,#1b4336,#2b5b4a 55%,#1a4033);background-size:100vw 100vh;background-position:calc(var(--c)*-12.5vw) 0}
+#loginScreen.wipe{background:transparent}#loginScreen.wipe .login-bg,#loginScreen.wipe #loginWelcome,#loginScreen.wipe .login-tilt{opacity:0;transition:none}
+#loginScreen.wipe .lw-cols{visibility:visible}
+#loginScreen.wipe .lw-cols i{animation:lgColUp .8s cubic-bezier(.77,0,.18,1) forwards;animation-delay:calc(var(--c)*.065s)}#loginScreen.wipe .lw-cols i:nth-child(even){animation-name:lgColDown}
+@keyframes lgColUp{to{transform:translateY(-101%)}}@keyframes lgColDown{to{transform:translateY(101%)}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;translate:none!important}.banner:before,.banner:after{animation:none!important}#loginScreen *,#loginWelcome,body.enter *{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important}#loginScreen.iris{animation-duration:.01ms}}
+#accountModal{position:fixed;inset:0;z-index:99990;background:#071c16aa;display:none;align-items:center;justify-content:center;padding:20px}#accountModal.on{display:flex}.account-box{width:min(100%,620px);max-height:85vh;overflow:auto;background:var(--card);color:var(--tx);border:1px solid var(--ln);border-radius:18px;padding:22px;box-shadow:0 24px 80px #0003}.account-box h2{margin:0 0 8px}.account-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.account-form input,.account-form select{min-width:0;width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--ln);border-radius:9px;background:var(--bg);color:var(--tx)}.account-list{width:100%;border-collapse:collapse;font-size:12px}.account-list td,.account-list th{padding:9px 6px;text-align:left;border-bottom:1px solid var(--ln)}.account-list button{padding:5px 8px}.user-pill{font-size:11px;border:1px solid var(--ln);padding:7px 10px;border-radius:99px;color:var(--tx2)}#logoutBtn{white-space:nowrap}
+@media(max-width:820px){.login-tilt{transform:none!important}#loginScreen{padding:12px}.login-shell{grid-template-columns:1fr;min-height:0;border-radius:26px}.login-blob,.login-illu,.login-bubbles,.login-copy{display:none}.login-art{background:#f4faf7;padding:20px 24px;justify-content:flex-start}.login-brand{position:static}.login-form-wrap{padding:30px 26px 70px}.login-form-wrap h1{font-size:32px}.login-help{left:0;right:0;bottom:20px;text-align:center}}
+
 </style>
 </head>
 <body>
+<div id="loginScreen" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+ <div class="login-bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><i class="bub" style="left:6%;width:14px;height:14px;animation-duration:16s;animation-delay:-2s"></i><i class="bub" style="left:15%;width:26px;height:26px;animation-duration:22s;animation-delay:-9s"></i><i class="bub" style="left:28%;width:10px;height:10px;animation-duration:14s;animation-delay:-5s"></i><i class="bub" style="left:41%;width:20px;height:20px;animation-duration:19s;animation-delay:-12s"></i><i class="bub" style="left:55%;width:12px;height:12px;animation-duration:15s;animation-delay:-1s"></i><i class="bub" style="left:66%;width:30px;height:30px;animation-duration:24s;animation-delay:-15s"></i><i class="bub" style="left:78%;width:16px;height:16px;animation-duration:17s;animation-delay:-7s"></i><i class="bub" style="left:90%;width:22px;height:22px;animation-duration:21s;animation-delay:-11s"></i></div>
+ <div class="login-tilt"><div class="login-shell">
+  <svg class="login-blob" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H560C520 80 535 165 590 235C640 298 640 400 560 480C500 540 420 575 340 620H0Z" fill="#f7fbf9"><animate attributeName="d" dur="14s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.33;.66;1" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1" values="M0 0H560C520 80 535 165 590 235C640 298 640 400 560 480C500 540 420 575 340 620H0Z;M0 0H590C545 90 520 150 575 225C650 310 625 410 540 500C480 545 400 585 330 620H0Z;M0 0H545C510 70 550 170 605 250C655 320 640 395 575 470C510 545 440 565 350 620H0Z;M0 0H560C520 80 535 165 590 235C640 298 640 400 560 480C500 540 420 575 340 620H0Z"/></path></svg>
+  <section class="login-art">
+   <div class="login-brand"><div class="login-logo" id="loginLogo"><svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#fff" stroke="#2f6b57" stroke-width="2"/><path d="M12 25 24 14l12 11v10H12z" fill="#2f6b57"/><rect x="21" y="27" width="6" height="8" fill="#fff"/></svg></div><div><b id="lbName">Easton Urban Kapital</b><small id="lbSub">Site Plan QC</small></div></div>
+   <div class="login-bubbles" aria-hidden="true"><span class="login-bubble" style="width:44px;height:44px;left:7%;top:24%"></span><span class="login-bubble" style="width:26px;height:26px;left:20%;top:66%;animation-delay:-3s,0s"></span><span class="login-bubble" style="width:34px;height:34px;left:62%;top:14%;animation-delay:-5s,0s"></span><span class="login-bubble" style="width:52px;height:52px;left:70%;top:72%;animation-delay:-2s,0s"></span></div>
+   <div class="login-illu"><svg viewBox="0 0 380 320" role="img" aria-label="Ilustrasi perumahan" xmlns="http://www.w3.org/2000/svg"><g class="il il-ground"><circle cx="190" cy="165" r="150" fill="#e4f1ed"/><circle cx="158" cy="190" r="104" fill="#d3e7e0"/><ellipse cx="190" cy="262" rx="132" ry="15" fill="#b7d4ca"/></g><g class="il il-h1"><rect x="62" y="196" width="78" height="64" fill="#fff"/><rect x="118" y="196" width="22" height="64" fill="#e9f3ef"/><path d="M52 198 101 156l49 42z" fill="#3c7d68"/><rect x="92" y="226" width="18" height="34" rx="2" fill="#5b9d89"/><rect class="win" style="animation-delay:-1s" x="70" y="210" width="14" height="14" rx="2" fill="#bfdcd2"/></g><g class="il il-h2"><rect x="150" y="150" width="96" height="110" fill="#fff"/><rect x="222" y="150" width="24" height="110" fill="#e9f3ef"/><path d="M140 152 198 100l58 52z" fill="#1f4d3d"/><rect class="win" style="animation-delay:-3s" x="170" y="172" width="16" height="16" rx="2" fill="#bfdcd2"/><rect class="win" style="animation-delay:-4.5s" x="200" y="172" width="16" height="16" rx="2" fill="#bfdcd2"/><rect class="win" style="animation-delay:-2s" x="170" y="206" width="16" height="16" rx="2" fill="#bfdcd2"/><rect x="194" y="226" width="22" height="34" rx="2" fill="#5b9d89"/></g><g class="il il-h3"><rect x="258" y="206" width="66" height="54" fill="#fff"/><rect x="304" y="206" width="20" height="54" fill="#e9f3ef"/><path d="M250 208 291 172l41 36z" fill="#4c8c76"/><rect class="win" style="animation-delay:-5s" x="268" y="220" width="14" height="14" rx="2" fill="#bfdcd2"/><rect x="288" y="232" width="14" height="28" rx="2" fill="#5b9d89"/></g><g class="il il-leaf"><path d="M38 262c-22-26-16-62 6-80 22 18 28 54 6 80z" fill="#2f6b57"/><path d="M44 262v-60" stroke="#e4f1ed" stroke-width="2"/></g><g transform="translate(0,-18)"><g class="il il-pin"><path d="M198 54c-12 0-20 9-20 20 0 15 20 32 20 32s20-17 20-32c0-11-8-20-20-20z" fill="#79bdb6"/><circle cx="198" cy="74" r="7" fill="#fff"/></g></g><g transform="rotate(-10 320 90)"><g class="il il-card"><rect x="288" y="62" width="70" height="54" rx="10" fill="#1f4d3d"/><rect x="297" y="72" width="22" height="14" rx="3" fill="#79bdb6"/><rect x="323" y="72" width="26" height="14" rx="3" fill="#fff" opacity=".85"/><rect x="297" y="92" width="14" height="14" rx="3" fill="#fff" opacity=".85"/><rect x="315" y="92" width="34" height="14" rx="3" fill="#79bdb6"/></g></g></svg></div>
+   <div class="login-copy">© 2026 <span id="lbCopy">Easton Urban Kapital</span><br>Powered by Site Plan QC</div>
+  </section>
+  <section class="login-form-wrap"><h1 id="loginTitle" class="stg" style="--i:0">Login</h1>
+   <form id="loginForm"><label class="login-field stg" style="--i:1"><span>Username</span><input id="loginUsername" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Masukkan username" required></label><label class="login-field stg" style="--i:2"><span>Password</span><div class="login-password"><input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required><button type="button" id="togglePassword" aria-label="Tampilkan password"><svg class="eye" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 17.9A10.9 10.9 0 0 1 12 19C5 19 1 12 1 12a18.4 18.4 0 0 1 5.1-5.9M9.9 5.1A10.4 10.4 0 0 1 12 5c7 0 11 7 11 7a18.5 18.5 0 0 1-2.2 3.2M1 1l22 22"/></svg></button></div></label>
+    <a href="#" id="loginForgot" class="login-forgot stg" style="--i:3">Lupa password?</a>
+    <button class="login-submit stg" style="--i:4" id="loginSubmit" type="submit"><i class="ls-spin"></i><svg class="ls-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M5 13l4 4L19 7"/></svg><span class="ls-text">Masuk ke Dashboard</span></button><div class="login-error" id="loginError" role="alert"></div><div class="login-note" id="loginNote" role="status" hidden>Reset password dilakukan oleh Admin lewat menu <b>Kelola akun</b>. Hubungi admin proyek Anda.</div></form>
+   <p class="login-alt stg" style="--i:5">Belum punya akun?<br><b>Hubungi admin proyek</b></p>
+   <div class="login-help stg" style="--i:6">Akses terbatas untuk pengguna terdaftar.<br>Jangan bagikan password Anda.</div>
+  </section>
+ </div></div>
+ <div id="loginWelcome" aria-live="polite"><div class="lw-logo" id="lwLogo"></div><h2 id="lwTitle"></h2><div class="lw-bar"><i></i></div><p id="lwMsg">Menyiapkan dashboard…</p></div>
+ <div class="lw-cols" aria-hidden="true"><i style="--c:0"></i><i style="--c:1"></i><i style="--c:2"></i><i style="--c:3"></i><i style="--c:4"></i><i style="--c:5"></i><i style="--c:6"></i><i style="--c:7"></i></div>
+</div>
+<script>try{if(localStorage.getItem('easton_auth_token'))document.getElementById('loginScreen').classList.add('checking')}catch(e){}</script>
+
 
 <aside>
+ <i class="nav-ind" id="navInd"></i>
  <div class="logo"><img id="lgImg" alt="Logo" style="display:none"><div><span id="pName">Easton Urban Kapital</span><small id="pLoc">Site Plan QC</small></div></div>
  <button class="on" data-v="dash">Dashboard</button>
  <button data-v="plan">Site Plan</button>
@@ -295,6 +435,7 @@ aside button:hover{transform:translateX(3px)}
   <div><h1 id="ttl">Dashboard</h1><p id="sub">Pantau progres semua unit</p></div>
   <div class="sp"></div>
   <input id="q" type="search" placeholder="Cari no. unit…" aria-label="Cari nomor unit">
+  <span id="userPill" class="user-pill" style="display:none"></span><button id="changePasswordBtn" class="btn ghost" style="display:none">Ganti password</button><button id="accountBtn" class="btn ghost" style="display:none">Kelola akun</button><button id="logoutBtn" class="btn ghost" style="display:none">Keluar</button>
  </header>
 
  <!-- DASHBOARD -->
@@ -310,13 +451,6 @@ aside button:hover{transform:translateX(3px)}
    </div>
   </div>
   <div class="grid4" id="cards"></div>
-  <div class="card dash-scurve-card" id="dashSCurveCard">
-   <div class="dash-sc-head"><div><h3>📈 Kurva S Progres Unit</h3><div class="sub">Pilih unit atau klik titik pada peta untuk melihat rencana dan aktual berbobot selama 12 bulan.</div></div><label class="dash-sc-select">Unit<select id="dashScUnit" aria-label="Pilih unit untuk Kurva S dashboard"></select></label></div>
-   <div class="dash-sc-kpis"><div><span>Aktual berbobot</span><b id="dashScActual">0%</b></div><div><span>Rencana terakhir</span><b id="dashScPlan">0%</b></div><div><span>Selisih</span><b id="dashScVariance">—</b></div><div><span>Bobot pekerjaan</span><b id="dashScWeight">100%</b></div></div>
-   <div class="dash-sc-chart" id="dashScChart"><div class="sub">Memuat Kurva S…</div></div>
-   <div class="sc-legend"><span><i style="background:#059669"></i>Rencana kumulatif</span><span><i style="background:#2563eb"></i>Aktual kumulatif</span></div>
-   <div class="dash-sc-foot"><span id="dashScStatus">Pilih unit untuk melihat Kurva S.</span><button class="btn ghost" id="dashScOpen">Buka pengaturan Kurva S ↗</button></div>
-  </div>
   <div class="card mapcard" id="vbox">
    <div class="mhead">
     <div style="flex:1;min-width:220px">
@@ -355,6 +489,13 @@ aside button:hover{transform:translateX(3px)}
     <div class="vtip" id="vtip">Tahan Ctrl / ⌘ + scroll untuk zoom peta</div>
     <div class="dcard" id="dcard" aria-live="polite"></div>
    </div>
+  </div>
+  <div class="card dash-scurve-card" id="dashSCurveCard">
+   <div class="dash-sc-head"><div><h3>📈 Kurva S Progres Unit</h3><div class="sub">Pilih unit atau klik titik pada peta untuk melihat rencana dan aktual berbobot selama 12 bulan.</div></div><label class="dash-sc-select">Unit<select id="dashScUnit" aria-label="Pilih unit untuk Kurva S dashboard"></select></label></div>
+   <div class="dash-sc-kpis"><div><span>Aktual berbobot</span><b id="dashScActual">0%</b></div><div><span>Rencana terakhir</span><b id="dashScPlan">0%</b></div><div><span>Selisih</span><b id="dashScVariance">—</b></div><div><span>Bobot pekerjaan</span><b id="dashScWeight">100%</b></div></div>
+   <div class="dash-sc-chart" id="dashScChart"><div class="sub">Memuat Kurva S…</div></div>
+   <div class="sc-legend"><span><i style="background:#059669"></i>Rencana kumulatif</span><span><i style="background:#2563eb"></i>Aktual kumulatif</span></div>
+   <div class="dash-sc-foot"><span id="dashScStatus">Pilih unit untuk melihat Kurva S.</span><button class="btn ghost" id="dashScOpen">Buka pengaturan Kurva S ↗</button></div>
   </div>
   <div class="grid2">
    <div class="card"><h3>Progres per Blok</h3><div class="sub">Rata-rata progres tiap blok</div><div id="blocks"></div></div>
@@ -422,7 +563,7 @@ aside button:hover{transform:translateX(3px)}
  <section class="view" id="scurve">
   <div class="card">
    <h3>Kurva S Berbobot Pekerjaan · 12 Bulan</h3>
-   <div class="sub">Pilih unit, atur bobot pekerjaan, target rencana kumulatif, dan catat aktual bulanan. Data tersimpan di Google Sheets saat dibuka melalui Web App Apps Script.</div>
+   <div class="sub">Pilih unit, atur bobot dan progres pekerjaan, target rencana kumulatif, dan catat aktual bulanan. Daftar pekerjaan diubah sekali di kartu di bawah dan berlaku untuk semua unit. Data tersimpan di Google Sheets saat dibuka melalui Web App Apps Script.</div>
    <div class="sc-actions">
     <label for="scUnit" style="margin:0;font-size:12px;color:var(--tx2);font-weight:700">Unit</label>
     <select id="scUnit" style="min-width:180px"></select>
@@ -431,6 +572,12 @@ aside button:hover{transform:translateX(3px)}
     <span class="pill" id="scStatus">Belum dimuat</span>
    </div>
   </div>
+  <details class="card" id="scMasterCard" style="margin-top:14px">
+   <summary>📋 Daftar pekerjaan · berlaku untuk semua unit</summary>
+   <div class="sub" style="margin-top:8px">Tambah, ganti nama, urutkan, atau hapus pekerjaan <b>sekali saja</b>, otomatis berlaku untuk seluruh unit. Bobot, aktual pekerjaan, kontribusi, target rencana kumulatif, dan aktual kumulatif tetap diisi per unit.</div>
+   <div id="scMasterList"></div>
+   <div class="btns"><button class="btn ghost" id="scMasterAdd">＋ Tambah pekerjaan</button><button class="btn" id="scMasterSave">Simpan daftar pekerjaan</button><span class="pill" id="scMasterStatus">Belum diubah</span></div>
+  </details>
   <div class="sc-top">
    <div class="sc-kpi"><span>Total bobot pekerjaan</span><b id="scWeight">100%</b></div>
    <div class="sc-kpi"><span>Aktual berbobot saat ini</span><b id="scWeighted">0%</b></div>
@@ -439,7 +586,7 @@ aside button:hover{transform:translateX(3px)}
   </div>
   <div class="sc-formgrid">
    <div class="card">
-    <h3>Bobot & progres tiap pekerjaan</h3><div class="sub">Bobot wajib berjumlah 100%. Progres pekerjaan adalah persentase penyelesaian pekerjaan tersebut.</div>
+    <h3>Bobot & progres tiap pekerjaan</h3><div class="sub">Bobot wajib berjumlah 100%. Nama pekerjaan mengikuti daftar pekerjaan (berlaku untuk semua unit); bobot dan progres diisi per unit.</div>
     <div class="tw"><table class="sc-table"><thead><tr><th>Pekerjaan</th><th>Bobot (%)</th><th>Aktual pekerjaan (%)</th><th>Kontribusi (%)</th></tr></thead><tbody id="scTasks"></tbody><tfoot><tr><th>Total</th><th id="scWeightFoot">100%</th><th>—</th><th id="scContribFoot">0%</th></tr></tfoot></table></div>
     <p class="sc-help">Kontribusi = bobot pekerjaan × persentase penyelesaian pekerjaan. Contoh: struktur berbobot 20% dan selesai 50% menyumbang 10% progres total.</p>
    </div>
@@ -480,6 +627,16 @@ aside button:hover{transform:translateX(3px)}
       <input type="file" id="logoF" accept="image/*,.svg" hidden>
      </div>
     </div>
+    <label class="fl">Logo halaman login</label>
+    <div style="display:flex;align-items:center;gap:12px">
+     <div class="lgbox" id="lgLoginPrev">Pakai logo proyek</div>
+     <div class="btns" style="margin:0">
+      <button class="btn ghost sm" id="loginLogoUp">🖼️ Unggah Logo</button>
+      <button class="btn ghost sm" id="loginLogoRm">Hapus</button>
+      <input type="file" id="loginLogoF" accept="image/*,.svg" hidden>
+     </div>
+    </div>
+    <div class="sub" style="margin-top:6px">Tampil di halaman login (juga nama &amp; lokasi proyek). Jika kosong, dipakai logo proyek di atas.</div>
    </div>
    <div class="card">
     <h3>Umum</h3><div class="sub">Identitas dan tampilan aplikasi</div>
@@ -513,6 +670,7 @@ aside button:hover{transform:translateX(3px)}
   </div>
  </section>
 </main>
+<div id="accountModal" role="dialog" aria-modal="true" aria-label="Kelola akun"><div class="account-box"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><div><h2>Kelola akun</h2><div class="sub">Khusus Admin · Password minimal 10 karakter</div></div><button id="accountClose" class="btn ghost">Tutup</button></div><form id="accountForm" class="account-form"><input id="newUsername" placeholder="Username baru" minlength="3" required><input id="newPassword" type="password" placeholder="Password (min. 10 karakter)" minlength="10" required><input id="newNama" placeholder="Nama lengkap (opsional)"><select id="newRole"><option>Viewer</option><option>Editor</option><option>Admin</option></select><button class="btn primary" type="submit" style="grid-column:1/-1">Buat akun</button></form><div id="accountMessage" class="sub" role="status"></div><div id="accountList">Memuat akun…</div></div></div>
 <div id="toast"></div>
 
 <script>
@@ -581,38 +739,43 @@ const SC_TASK_DEFAULTS=[
 ];
 const SC_PLAN_DEFAULT=[2,6,12,20,30,42,55,67,78,87,95,100];
 let scData={}, scLoaded=false, scBusy=false;
-function scDefault(){return {tasks:SC_TASK_DEFAULTS.map(([name,weight])=>({name,weight,actual:0})),plan:SC_PLAN_DEFAULT.slice(),actual:Array(12).fill('')}}
+let scMaster=SC_TASK_DEFAULTS.map(([name,weight],i)=>({id:'t'+(i+1),name,weight})),scMasterDraft=[],scLegacy=new Set(),scMasterBusy=false;
+function scMasterClean(list){const seen=new Set(),out=[];(Array.isArray(list)?list:[]).forEach((t,i)=>{if(!t)return;const name=String(t.name||'').trim().slice(0,100);if(!name)return;let id=String(t.id||'').replace(/[^a-z0-9_-]/gi,'').slice(0,24);if(!id||seen.has(id))id='t'+Date.now().toString(36)+i;seen.add(id);out.push({id,name,weight:clamp(Number(t.weight)||0,0,100)})});return out}
+function scApplyMaster(d){const c=scMasterClean(d&&(d.tasks||d));if(c.length)scMaster=c}
+function scDefault(){return {tasks:scMaster.map(m=>({id:m.id,name:m.name,weight:m.weight,actual:0})),plan:SC_PLAN_DEFAULT.slice(),actual:Array(12).fill('')}}
 function scUnitId(){return $('#scUnit').value|| (units[0]&&units[0].id)||''}
 function scCurrent(){const id=scUnitId();if(!scData[id])scData[id]=scDefault();return scData[id]}
-function scNormalize(d){d=d&&typeof d==='object'?d:{};const incoming=Array.isArray(d.tasks)?d.tasks:[],base=scDefault().tasks;
- const byName=new Map(incoming.map(t=>[String(t.name||'').trim().toLowerCase(),t]));
- const tasks=base.map((b,i)=>{const t=byName.get(b.name.toLowerCase())||incoming[i]||{};return {name:String(t.name||b.name).slice(0,100),weight:clamp(t.weight===undefined?b.weight:Number(t.weight)||0,0,100),actual:clamp(Number(t.actual)||0,0,100)}});const plan=Array.isArray(d.plan)?Array.from({length:12},(_,i)=>clamp(Number(d.plan[i])||0,0,100)):SC_PLAN_DEFAULT.slice();const actual=Array.isArray(d.actual)?Array.from({length:12},(_,i)=>d.actual[i]===''||d.actual[i]==null?'':clamp(Number(d.actual[i])||0,0,100)):Array(12).fill('');return {tasks,plan,actual}}
+function scNormalize(d){d=d&&typeof d==='object'?d:{};const incoming=Array.isArray(d.tasks)?d.tasks:[],fresh=!incoming.length,hasIds=incoming.some(t=>t&&t.id);
+ const byId=new Map(incoming.filter(t=>t&&t.id).map(t=>[String(t.id),t])),byName=new Map(incoming.map(t=>[String((t&&t.name)||'').trim().toLowerCase(),t]));
+ const tasks=scMaster.map((m,i)=>{const t=byId.get(m.id)||byName.get(m.name.toLowerCase())||(!hasIds?incoming[i]:null)||{};return {id:m.id,name:m.name,weight:clamp(t.weight===undefined?(fresh?m.weight:0):Number(t.weight)||0,0,100),actual:clamp(Number(t.actual)||0,0,100)}});
+ const plan=Array.isArray(d.plan)?Array.from({length:12},(_,i)=>clamp(Number(d.plan[i])||0,0,100)):SC_PLAN_DEFAULT.slice();const actual=Array.isArray(d.actual)?Array.from({length:12},(_,i)=>d.actual[i]===''||d.actual[i]==null?'':clamp(Number(d.actual[i])||0,0,100)):Array(12).fill('');return {tasks,plan,actual}}
 function scRender(){
  const id=scUnitId(),d=scCurrent();
- $('#scTasks').innerHTML=d.tasks.map((t,i)=>`<tr><td><input class="task-name" data-sct="${i}" data-field="name" value="${esc(t.name)}" aria-label="Nama pekerjaan"></td><td><input type="number" min="0" max="100" step="0.5" data-sct="${i}" data-field="weight" value="${t.weight}"></td><td><input type="number" min="0" max="100" step="1" data-sct="${i}" data-field="actual" value="${t.actual}"></td><td id="scContrib${i}">${(t.weight*t.actual/100).toFixed(1)}%</td></tr>`).join('');
+ $('#scTasks').innerHTML=d.tasks.map((t,i)=>`<tr><td class="tname">${esc(t.name)}</td><td><input type="number" min="0" max="100" step="0.5" data-sct="${i}" data-field="weight" value="${t.weight}"></td><td><input type="number" min="0" max="100" step="1" data-sct="${i}" data-field="actual" value="${t.actual}"></td><td id="scContrib${i}">${(t.weight*t.actual/100).toFixed(1)}%</td></tr>`).join('');
  $('#scPlanInputs').innerHTML=d.plan.map((v,i)=>`<label>Bulan ${i+1}<input type="number" min="0" max="100" step="0.5" data-scp="${i}" value="${v}"></label>`).join('');
  $('#scActualInputs').innerHTML=d.actual.map((v,i)=>`<label>Bulan ${i+1}<input type="number" min="0" max="100" step="0.5" data-sca="${i}" placeholder="—" value="${v=== ''?'':v}"></label>`).join('');
  scCalc();scDrawChart();
 }
 function scCalc(){const d=scCurrent(),weight=d.tasks.reduce((a,t)=>a+(Number(t.weight)||0),0),weighted=d.tasks.reduce((a,t)=>a+(Number(t.weight)||0)*(Number(t.actual)||0)/100,0),p12=Number(d.plan[11])||0;let latestIndex=-1;for(let i=d.actual.length-1;i>=0;i--){if(d.actual[i]!==''&&d.actual[i]!=null){latestIndex=i;break}}const variance=latestIndex>=0?Number(d.actual[latestIndex])-Number(d.plan[latestIndex]):null;$('#scWeight').textContent=weight.toFixed(1)+'%';$('#scWeightFoot').textContent=weight.toFixed(1)+'%';$('#scWeighted').textContent=weighted.toFixed(1)+'%';$('#scPlanEnd').textContent=p12.toFixed(1)+'%';$('#scVariance').textContent=variance===null?'—':(variance>0?'+':'')+variance.toFixed(1)+' pp';$('#scContribFoot').textContent=weighted.toFixed(1)+'%';d.tasks.forEach((t,i)=>{const e=$('#scContrib'+i);if(e)e.textContent=(Number(t.weight||0)*Number(t.actual||0)/100).toFixed(1)+'%'});}
 function scDrawChart(){const d=scCurrent(),W=700,H=300,L=48,R=18,T=16,B=36,iw=W-L-R,ih=H-T-B;const y=v=>T+ih-(clamp(Number(v)||0,0,100)/100)*ih,x=i=>L+iw*i/11;let grid='';for(let v=0;v<=100;v+=20){const yy=y(v);grid+=`<line x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" stroke="var(--ln)"/><text x="${L-9}" y="${yy+4}" text-anchor="end" fill="var(--tx2)" font-size="11">${v}%</text>`}let labels='';for(let i=0;i<12;i++)labels+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" fill="var(--tx2)" font-size="10">B${i+1}</text>`;const line=arr=>arr.map((v,i)=>`${x(i)},${y(v===''||v==null?NaN:v)}`).join(' ');const planPoints=line(d.plan);const valid=d.actual.map(v=>v===''?null:v);let actualSegs=[],seg=[];valid.forEach((v,i)=>{if(v==null){if(seg.length)actualSegs.push(seg),seg=[]}else seg.push(`${x(i)},${y(v)}`)});if(seg.length)actualSegs.push(seg);$('#scChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Grafik Kurva S rencana dan aktual 12 bulan">${grid}${labels}<polyline points="${planPoints}" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${actualSegs.map(a=>`<polyline points="${a.join(' ')}" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}${d.plan.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="#059669"/>`).join('')}${valid.map((v,i)=>v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="#2563eb"/>`).join('')}</svg>`}
-function scChartMarkup(d,W=700,H=260){
+function scChartMarkup(d,W=700,H=260,anim=false){
  const L=42,R=12,T=12,B=30,iw=W-L-R,ih=H-T-B,x=i=>L+iw*i/11,y=v=>T+ih-(clamp(Number(v)||0,0,100)/100)*ih;
  let grid='';for(let v=0;v<=100;v+=20){const yy=y(v);grid+=`<line x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" stroke="var(--ln)"/><text x="${L-7}" y="${yy+3.5}" text-anchor="end" fill="var(--tx2)" font-size="10">${v}</text>`}
  let labels='';for(let i=0;i<12;i++)labels+=`<text x="${x(i)}" y="${H-9}" text-anchor="middle" fill="var(--tx2)" font-size="9">${i+1}</text>`;
  const plan=d.plan.map((v,i)=>`${x(i)},${y(v)}`).join(' ');let segs=[],seg=[];d.actual.forEach((v,i)=>{if(v===''||v==null){if(seg.length)segs.push(seg),seg=[]}else seg.push(`${x(i)},${y(v)}`)});if(seg.length)segs.push(seg);
- const dots=d.plan.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="2.5" fill="#059669"><title>Bulan ${i+1} · Rencana ${v}%</title></circle>`).join('')+d.actual.map((v,i)=>v===''||v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="#2563eb"><title>Bulan ${i+1} · Aktual ${v}%</title></circle>`).join('');
- return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Kurva S rencana dan aktual 12 bulan">${grid}${labels}<polyline points="${plan}" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${segs.map(a=>`<polyline points="${a.join(' ')}" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}${dots}</svg>`;
+ const dots=d.plan.map((v,i)=>`<circle style="--k:${i}" cx="${x(i)}" cy="${y(v)}" r="2.5" fill="#059669"><title>Bulan ${i+1} · Rencana ${v}%</title></circle>`).join('')+d.actual.map((v,i)=>v===''||v==null?'':`<circle style="--k:${i+4}" cx="${x(i)}" cy="${y(v)}" r="3" fill="#2563eb"><title>Bulan ${i+1} · Aktual ${v}%</title></circle>`).join('');
+ return `<svg class="${anim?'sc-anim':''}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Kurva S rencana dan aktual 12 bulan">${grid}${labels}<polyline pathLength="1" points="${plan}" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${segs.map(a=>`<polyline class="act" pathLength="1" points="${a.join(' ')}" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}${dots}</svg>`;
 }
 function scSummary(d){const weight=d.tasks.reduce((a,t)=>a+Number(t.weight||0),0),weighted=d.tasks.reduce((a,t)=>a+Number(t.weight||0)*Number(t.actual||0)/100,0);let i=-1;for(let j=11;j>=0;j--)if(d.actual[j]!==''&&d.actual[j]!=null){i=j;break}return {weight,weighted,idx:i,plan:i>=0?Number(d.plan[i])||0:0,actual:i>=0?Number(d.actual[i])||0:null,variance:i>=0?(Number(d.actual[i])||0)-(Number(d.plan[i])||0):null}}
 function dashScFillUnits(){const sel=$('#dashScUnit');if(!sel)return;const old=sel.value;sel.innerHTML=units.map(u=>`<option value="${esc(u.id)}">${esc(u.no)} · ${esc(u.type||'')}</option>`).join('');if(units.some(u=>u.id===old))sel.value=old;else if(vsel&&units.some(u=>u.id===vsel))sel.value=vsel;else if(units.length)sel.value=units[0].id;dashScRender()}
-function dashScRender(unitId){const sel=$('#dashScUnit');if(!sel)return;const id=unitId||sel.value||(units[0]&&units[0].id);if(id&&units.some(u=>u.id===id))sel.value=id;const u=units.find(x=>x.id===sel.value);if(!u){$('#dashScChart').innerHTML='<div class="sub">Belum ada unit untuk ditampilkan.</div>';return}const d=scNormalize(scData[u.id]||scDefault()),z=scSummary(d);$('#dashScActual').textContent=z.weighted.toFixed(1)+'%';$('#dashScPlan').textContent=(z.idx>=0?z.plan:Number(d.plan[0])||0).toFixed(1)+'%';$('#dashScVariance').textContent=z.variance===null?'Belum ada snapshot':(z.variance>0?'+':'')+z.variance.toFixed(1)+' pp';$('#dashScWeight').textContent=z.weight.toFixed(1)+'%';$('#dashScChart').innerHTML=scChartMarkup(d,900,270);$('#dashScStatus').textContent=scData[u.id]?'Data Kurva S unit '+u.no+(hasCloud()?' · sinkron dari penyimpanan':' · data lokal'):'Belum ada pengaturan tersimpan untuk unit '+u.no+'; yang tampil adalah contoh awal.'}
-function scDetailMarkup(u){const d=scNormalize(scData[u.id]||scDefault()),z=scSummary(d),latest=z.idx>=0?`Bulan ${z.idx+1}`:'Belum ada snapshot';return `<section class="dsc-section"><h3>📈 Kurva S · ${esc(u.no)}</h3><div class="sub">Rencana vs aktual berbobot selama 12 bulan</div><div class="dsc-kpis"><div><small>Aktual berbobot pekerjaan</small><b>${z.weighted.toFixed(1)}%</b></div><div><small>Snapshot aktual terakhir</small><b>${z.actual===null?'—':z.actual.toFixed(1)+'%'}</b><small>${latest}</small></div><div><small>Selisih snapshot</small><b>${z.variance===null?'—':(z.variance>0?'+':'')+z.variance.toFixed(1)+' pp'}</b></div></div><div class="dsc-chart">${scChartMarkup(d,520,220)}</div><div class="sc-legend"><span><i style="background:#059669"></i>Rencana</span><span><i style="background:#2563eb"></i>Aktual</span></div><div class="sub" style="margin-top:7px">Bobot pekerjaan terisi: ${z.weight.toFixed(1)}%. ${scData[u.id]?'Data tersimpan tersedia.':'Belum ada data tersimpan untuk unit ini; grafik menampilkan contoh awal.'}</div><table class="dsc-tasklist"><thead><tr><th>Pekerjaan</th><th>Bobot</th><th>Aktual</th><th>Kontribusi</th></tr></thead><tbody>${d.tasks.map(t=>`<tr><td>${esc(t.name)}</td><td>${Number(t.weight).toFixed(1)}%</td><td>${Number(t.actual).toFixed(0)}%</td><td>${(Number(t.weight)*Number(t.actual)/100).toFixed(1)}%</td></tr>`).join('')}</tbody></table><div class="dfoot"><button class="btn ghost" data-open-scurve="${esc(u.id)}">Kelola Kurva S unit ini ↗</button></div></section>`}
+function dashScRender(unitId){const sel=$('#dashScUnit');if(!sel)return;const id=unitId||sel.value||(units[0]&&units[0].id);if(id&&units.some(u=>u.id===id))sel.value=id;const u=units.find(x=>x.id===sel.value);if(!u){$('#dashScChart').innerHTML='<div class="sub">Belum ada unit untuk ditampilkan.</div>';return}const d=scNormalize(scData[u.id]||scDefault()),z=scSummary(d);$('#dashScActual').textContent=z.weighted.toFixed(1)+'%';$('#dashScPlan').textContent=(z.idx>=0?z.plan:Number(d.plan[0])||0).toFixed(1)+'%';$('#dashScVariance').textContent=z.variance===null?'Belum ada snapshot':(z.variance>0?'+':'')+z.variance.toFixed(1)+' pp';$('#dashScWeight').textContent=z.weight.toFixed(1)+'%';$('#dashScChart').innerHTML=scChartMarkup(d,900,270,true);$('#dashScStatus').textContent=scData[u.id]?'Data Kurva S unit '+u.no+(hasCloud()?' · sinkron dari penyimpanan':' · data lokal'):'Belum ada pengaturan tersimpan untuk unit '+u.no+'; yang tampil adalah contoh awal.'}
+function scDetailMarkup(u){const d=scNormalize(scData[u.id]||scDefault()),z=scSummary(d),latest=z.idx>=0?`Bulan ${z.idx+1}`:'Belum ada snapshot';return `<section class="dsc-section"><h3>📈 Kurva S · ${esc(u.no)}</h3><div class="sub">Rencana vs aktual berbobot selama 12 bulan</div><div class="dsc-kpis"><div><small>Aktual berbobot pekerjaan</small><b>${z.weighted.toFixed(1)}%</b></div><div><small>Snapshot aktual terakhir</small><b>${z.actual===null?'—':z.actual.toFixed(1)+'%'}</b><small>${latest}</small></div><div><small>Selisih snapshot</small><b>${z.variance===null?'—':(z.variance>0?'+':'')+z.variance.toFixed(1)+' pp'}</b></div></div><div class="dsc-chart">${scChartMarkup(d,520,220,true)}</div><div class="sc-legend"><span><i style="background:#059669"></i>Rencana</span><span><i style="background:#2563eb"></i>Aktual</span></div><div class="sub" style="margin-top:7px">Bobot pekerjaan terisi: ${z.weight.toFixed(1)}%. ${scData[u.id]?'Data tersimpan tersedia.':'Belum ada data tersimpan untuk unit ini; grafik menampilkan contoh awal.'}</div><table class="dsc-tasklist"><thead><tr><th>Pekerjaan</th><th>Bobot</th><th>Aktual</th><th>Kontribusi</th></tr></thead><tbody>${d.tasks.map(t=>`<tr><td>${esc(t.name)}</td><td>${Number(t.weight).toFixed(1)}%</td><td>${Number(t.actual).toFixed(0)}%</td><td>${(Number(t.weight)*Number(t.actual)/100).toFixed(1)}%</td></tr>`).join('')}</tbody></table><div class="dfoot"><button class="btn ghost" data-open-scurve="${esc(u.id)}">Kelola Kurva S unit ini ↗</button></div></section>`}
 
 async function scLoad(){
- const local=jget('qc_scurve_data',{});scData=local&&typeof local==='object'?local:{};
- if(hasCloud())try{const r=await cloudCall('apiGetSCurveData');if(r&&r.ok){scData={};(r.data||[]).forEach(x=>{scData[x.unitId]=scNormalize(x.data)});lset('qc_scurve_data',JSON.stringify(scData));$('#scStatus').textContent='Data Google Sheets';}else $('#scStatus').textContent='Mode lokal';}catch(e){$('#scStatus').textContent='Mode lokal'}
- scLoaded=true;scFillUnits();scRender();
+ const lm=jget('qc_scurve_master',null);if(lm)scApplyMaster(lm);
+ const local=jget('qc_scurve_data',{});scData={};if(local&&typeof local==='object')Object.keys(local).forEach(k=>scData[k]=scNormalize(local[k]));
+ if(hasCloud())try{const r=await cloudCall('apiGetSCurveData');if(r&&r.ok){const rows=r.data||[],m=rows.find(x=>x.unitId==='__master__');if(m)scApplyMaster(m.data);scData={};scLegacy=new Set();rows.forEach(x=>{if(x.unitId==='__master__')return;if(!(x.data&&Array.isArray(x.data.tasks)&&x.data.tasks.some(t=>t&&t.id)))scLegacy.add(x.unitId);scData[x.unitId]=scNormalize(x.data)});lset('qc_scurve_data',JSON.stringify(scData));lset('qc_scurve_master',JSON.stringify({tasks:scMaster}));$('#scStatus').textContent='Data Google Sheets'}else $('#scStatus').textContent='Mode lokal'}catch(e){$('#scStatus').textContent='Mode lokal'}
+ scLoaded=true;scFillUnits();scRender();scMasterReset();
 }
 function scFillUnits(){const sel=$('#scUnit'),old=sel.value;sel.innerHTML=units.map(u=>`<option value="${esc(u.id)}">${esc(u.no)} · ${esc(u.type||'')}</option>`).join('');if(units.some(u=>u.id===old))sel.value=old;else if(units.length)sel.value=units[0].id;}
 async function scSave(){if(scBusy)return;const id=scUnitId();if(!id){toast('Belum ada unit untuk disimpan');return}const d=scCurrent(),weight=d.tasks.reduce((a,t)=>a+Number(t.weight||0),0);if(Math.abs(weight-100)>0.01){toast('Total bobot harus 100%. Saat ini '+weight.toFixed(1)+'%.');return}if(d.plan.some((v,i)=>i&&Number(v)<Number(d.plan[i-1]))){toast('Rencana kumulatif harus berurutan naik atau tetap.');return}if(d.actual.filter(v=>v!=='').some((v,i,a)=>i&&Number(v)<Number(a[i-1]))){toast('Aktual kumulatif harus berurutan naik atau tetap.');return}if(d.plan.some(v=>Number(v)>100)||d.actual.some(v=>v!==''&&Number(v)>100)){toast('Nilai progres maksimal 100%.');return}const u=units.find(x=>x.id===id);scData[id]=scNormalize(d);lset('qc_scurve_data',JSON.stringify(scData));scBusy=true;$('#scSave').disabled=true;$('#scStatus').textContent='Menyimpan…';try{if(hasCloud()){const r=await cloudCall('apiSaveSCurveData',{unitId:id,unitNo:u?u.no:id,data:scData[id]});if(!r||!r.ok)throw new Error(r&&r.error||'Simpan gagal');$('#scStatus').textContent='Tersimpan ke Google Sheets';dashScRender(id);if(vsel===id&&$('#dcard').classList.contains('on'))drawDetail(u);}else{$('#scStatus').textContent='Tersimpan lokal saja';toast('Buka URL Web App Apps Script agar tersimpan ke Google Sheets.');return}toast('Kurva S '+(u?u.no:id)+' berhasil disimpan.')}catch(e){$('#scStatus').textContent='Gagal menyimpan';toast('Gagal menyimpan Kurva S: '+e.message)}finally{scBusy=false;$('#scSave').disabled=false}}
@@ -620,16 +783,99 @@ $('#scUnit').addEventListener('change',()=>{if(!scData[scUnitId()])scData[scUnit
 $('#scTasks').addEventListener('input',e=>{const t=e.target.closest('[data-sct]');if(!t)return;const d=scCurrent(),i=Number(t.dataset.sct),f=t.dataset.field;if(!d.tasks[i])return;d.tasks[i][f]=f==='name'?t.value:clamp(Number(t.value)||0,0,100);scCalc()});
 $('#scPlanInputs').addEventListener('input',e=>{const t=e.target.closest('[data-scp]');if(!t)return;scCurrent().plan[Number(t.dataset.scp)]=clamp(Number(t.value)||0,0,100);scCalc();scDrawChart()});
 $('#scActualInputs').addEventListener('input',e=>{const t=e.target.closest('[data-sca]');if(!t)return;scCurrent().actual[Number(t.dataset.sca)]=t.value===''?'':clamp(Number(t.value)||0,0,100);scCalc();scDrawChart()});
-$('#scReset').onclick=()=>{if(!confirm('Kembalikan bobot pekerjaan dan rencana ke contoh awal? Aktual pekerjaan dan snapshot aktual akan direset.'))return;scData[scUnitId()]=scDefault();scRender();$('#scStatus').textContent='Contoh dimuat · belum disimpan'};
+$('#scReset').onclick=()=>{if(!confirm('Kembalikan bobot dan rencana unit ini ke contoh awal? Aktual pekerjaan dan snapshot aktual unit ini akan direset (daftar pekerjaan tidak berubah).'))return;scData[scUnitId()]=scDefault();scRender();$('#scStatus').textContent='Contoh dimuat · belum disimpan'};
 $('#scSave').onclick=scSave;
+
+function scMasterReset(){scMasterDraft=scMaster.map(t=>({...t}));scMasterRender();const p=$('#scMasterStatus');if(p)p.textContent='Belum diubah'}
+function scMasterRender(){const box=$('#scMasterList');if(!box)return;const d=scMasterDraft;box.innerHTML=d.map((t,i)=>`<div class="mrow"><span class="mno">${i+1}</span><input class="task-name" data-mname="${i}" value="${esc(t.name)}" placeholder="Nama pekerjaan" aria-label="Nama pekerjaan ${i+1}"><button class="btn ghost sm" data-mup="${i}" ${i?'':'disabled'} aria-label="Naikkan">↑</button><button class="btn ghost sm" data-mdown="${i}" ${i<d.length-1?'':'disabled'} aria-label="Turunkan">↓</button><button class="btn red sm" data-mdel="${i}" aria-label="Hapus pekerjaan">Hapus</button></div>`).join('')}
+function scMasterMark(){$('#scMasterStatus').textContent='Belum disimpan'}
+async function scMasterSave(){
+ if(scMasterBusy)return;const clean=scMasterClean(scMasterDraft);if(!clean.length){toast('Minimal harus ada satu pekerjaan bernama.');return}
+ scMasterBusy=true;$('#scMasterSave').disabled=true;$('#scMasterStatus').textContent='Menyimpan…';
+ scMaster=clean;Object.keys(scData).forEach(k=>scData[k]=scNormalize(scData[k]));
+ lset('qc_scurve_master',JSON.stringify({tasks:scMaster}));lset('qc_scurve_data',JSON.stringify(scData));
+ try{
+  if(hasCloud()){
+   const r=await cloudCall('apiSaveSCurveData',{unitId:'__master__',unitNo:'DAFTAR PEKERJAAN',data:{tasks:scMaster}});if(!r||!r.ok)throw new Error(r&&r.error||'Simpan gagal');
+   for(const id of [...scLegacy]){const u=units.find(x=>x.id===id),r2=await cloudCall('apiSaveSCurveData',{unitId:id,unitNo:u?u.no:id,data:scData[id]});if(r2&&r2.ok)scLegacy.delete(id)}
+   $('#scMasterStatus').textContent='Tersimpan ke Google Sheets';
+  }else $('#scMasterStatus').textContent='Tersimpan lokal saja';
+  scMasterReset();scRender();if(typeof dashScRender==='function')dashScRender();
+  const bad=units.filter(u=>scData[u.id]&&Math.abs(scData[u.id].tasks.reduce((a,t)=>a+t.weight,0)-100)>0.01).map(u=>u.no);
+  toast(bad.length?'Daftar pekerjaan disimpan. Total bobot perlu disesuaikan di: '+bad.slice(0,6).join(', ')+(bad.length>6?' +'+(bad.length-6)+' unit':''):'Daftar pekerjaan disimpan dan berlaku untuk semua unit.');
+ }catch(e){$('#scMasterStatus').textContent='Gagal menyimpan';toast('Gagal menyimpan daftar pekerjaan: '+e.message)}
+ finally{scMasterBusy=false;$('#scMasterSave').disabled=false}
+}
+$('#scMasterList').addEventListener('input',e=>{const t=e.target.closest('[data-mname]');if(!t)return;scMasterDraft[+t.dataset.mname].name=t.value;scMasterMark()});
+$('#scMasterList').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=scMasterDraft;let i;
+ if(b.dataset.mup!==undefined){i=+b.dataset.mup;[d[i-1],d[i]]=[d[i],d[i-1]]}
+ else if(b.dataset.mdown!==undefined){i=+b.dataset.mdown;[d[i+1],d[i]]=[d[i],d[i+1]]}
+ else if(b.dataset.mdel!==undefined){i=+b.dataset.mdel;if(d.length<=1){toast('Minimal harus ada satu pekerjaan.');return}d.splice(i,1)}
+ else return;scMasterMark();scMasterRender()});
+$('#scMasterAdd').onclick=()=>{scMasterDraft.push({id:'t'+Date.now().toString(36),name:'',weight:0});scMasterMark();scMasterRender();const ins=$('#scMasterList').querySelectorAll('input');ins[ins.length-1].focus()};
+$('#scMasterSave').onclick=scMasterSave;
 $('#dashScUnit')?.addEventListener('change',()=>dashScRender());
 $('#dashScOpen')?.addEventListener('click',()=>{const id=$('#dashScUnit')?.value;if(!scLoaded)scLoad().then(()=>{scFillUnits();if(id)$('#scUnit').value=id;scRender();go('scurve')});else{if(id)$('#scUnit').value=id;scRender();go('scurve')}});
 
 const hasCloud=()=>!!(window.google&&google.script&&google.script.run);
+let authToken=lget('easton_auth_token')||'';
+let authUser=jget('easton_auth_user',null);
 function cloudCall(method,...args){return new Promise((resolve,reject)=>{
   if(!hasCloud())return reject(new Error('Buka aplikasi dari URL Web App Google Apps Script.'));
+  if(!['apiLogin','apiLogout','apiGetLoginBrand'].includes(method))args.push(authToken);
   google.script.run.withSuccessHandler(resolve).withFailureHandler(e=>reject(new Error(e&&e.message||String(e))))[method](...args);
 })}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const reduceMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function setBtn(text,state){const b=$('#loginSubmit');b.disabled=state==='loading'||state==='ok';b.classList.toggle('loading',state==='loading');b.classList.toggle('ok',state==='ok');b.querySelector('.ls-text').textContent=text}
+function showLogin(message=''){const el=$('#loginScreen');if(el){el.classList.remove('checking','welcome','iris','leaving','wipe');el.style.display='flex'}$('#loginError').textContent=message;setBtn('Masuk ke Dashboard','')}
+function loginFail(msg){showLogin(msg);const f=$('#loginForm');f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');f.addEventListener('animationend',()=>f.classList.remove('shake'),{once:true})}
+// Logo & nama di halaman login (bisa diganti di Pengaturan)
+const LOGIN_MARK=$('#loginLogo').innerHTML;
+function applyLoginBrand(b){b=b||{};const box=$('#loginLogo');
+  if(b.logo&&/^data:image\//.test(b.logo)){box.textContent='';const im=new Image();im.alt='Logo';im.src=b.logo;box.appendChild(im);box.classList.add('has-img')}
+  else{box.innerHTML=LOGIN_MARK;box.classList.remove('has-img')}
+  const nm=b.name||'Easton Urban Kapital';$('#lbName').textContent=nm;$('#lbCopy').textContent=nm;$('#lbSub').textContent=b.loc||'Site Plan QC'}
+function loadLoginBrand(){const c=jget('easton_login_brand',null);if(c)applyLoginBrand(c);
+  if(hasCloud())cloudCall('apiGetLoginBrand').then(r=>{if(r&&r.ok){applyLoginBrand(r);lset('easton_login_brand',JSON.stringify(r))}}).catch(()=>{})}
+// Transisi: sapaan -> iris -> dashboard masuk berurutan
+function stageDash(){document.querySelectorAll('.view.on>*').forEach((el,i)=>el.style.setProperty('--n',Math.min(i,8)));document.querySelectorAll('#cards>*').forEach((el,i)=>el.style.setProperty('--n',i))}
+function buildWelcome(hi,name){const t=$('#lwTitle');if(!t)return;t.textContent='';[...(hi+', '+name)].forEach((ch,k)=>{const sp=document.createElement('span');sp.className='ch';sp.style.setProperty('--k',k);sp.textContent=ch;t.appendChild(sp)});$('#lwLogo').innerHTML=$('#loginLogo').innerHTML}
+async function enterDashboard(work,minMs,hi){
+  const L=$('#loginScreen');buildWelcome(hi||'Selamat datang',(authUser&&(authUser.nama||authUser.username))||'');
+  L.style.setProperty('--lwdur',(minMs/1000)+'s');L.style.display='flex';L.classList.add('welcome');
+  await Promise.all([Promise.resolve().then(work),sleep(reduceMotion?100:minMs)]);
+  $('#lwMsg').textContent='Siap!';L.classList.add('leaving');await sleep(reduceMotion?0:400);
+  document.body.classList.add('enter');stageDash();L.classList.add('wipe');
+  setTimeout(()=>{try{playDash()}catch(e){}},reduceMotion?0:650);
+  await sleep(reduceMotion?50:1300);
+  L.style.display='none';L.classList.remove('welcome','leaving','wipe','checking');$('#lwMsg').textContent='Menyiapkan dashboard…';
+  setTimeout(moveNavInd,50);setTimeout(()=>document.body.classList.remove('enter'),3000);
+}
+(()=>{const L=$('#loginScreen');if(reduceMotion||!matchMedia('(hover:hover)').matches)return;let raf=0;
+  L.addEventListener('pointermove',e=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;L.style.setProperty('--px',((e.clientX/innerWidth-.5)*22).toFixed(1)+'px');L.style.setProperty('--py',((e.clientY/innerHeight-.5)*16).toFixed(1)+'px');L.style.setProperty('--rx',((e.clientX/innerWidth-.5)*5).toFixed(2));L.style.setProperty('--ry',((e.clientY/innerHeight-.5)*3.5).toFixed(2))})})})();
+if(reduceMotion)document.querySelectorAll('.login-blob animate').forEach(a=>a.remove());
+function setAuthenticated(user,token,keepLogin){authToken=token;authUser=user;lset('easton_auth_token',token);lset('easton_auth_user',JSON.stringify(user));if(!keepLogin)$('#loginScreen').style.display='none';$('#userPill').style.display='inline-flex';$('#userPill').textContent=(user.nama||user.username)+' · '+user.role;$('#changePasswordBtn').style.display='inline-block';$('#logoutBtn').style.display='inline-block';$('#accountBtn').style.display=user.role==='Admin'?'inline-block':'none';applyRoleUI();}
+function applyRoleUI(){const viewer=authUser&&authUser.role==='Viewer';document.body.classList.toggle('role-viewer',!!viewer);if(viewer){document.querySelectorAll('[data-edit],.edit-only').forEach(e=>e.style.display='none');}}
+$('#togglePassword').addEventListener('click',()=>{const p=$('#loginPassword'),show=p.type==='password',t=$('#togglePassword');p.type=show?'text':'password';t.classList.toggle('on',show);t.setAttribute('aria-label',show?'Sembunyikan password':'Tampilkan password');p.focus()});
+$('#loginForgot').addEventListener('click',e=>{e.preventDefault();$('#loginNote').hidden=!$('#loginNote').hidden});
+$('#loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();setBtn('Memeriksa…','loading');$('#loginError').textContent='';let r;
+  try{r=await cloudCall('apiLogin',$('#loginUsername').value.trim(),$('#loginPassword').value);if(!r||!r.ok)throw new Error(r&&r.error||'Login gagal.')}
+  catch(err){loginFail(err.message||'Tidak dapat login. Pastikan aplikasi dibuka dari URL Web App.');return}
+  setBtn('Berhasil','ok');setAuthenticated(r.user,r.token,true);$('#loginPassword').value='';
+  try{await enterDashboard(()=>startApp(),1500);if(r.user.mustChangePassword)toast('Ini login pertama. Segera ganti password Anda.')}
+  catch(err){loginFail(err.message||'Gagal memuat dashboard.')}
+});
+$('#logoutBtn').addEventListener('click',async()=>{try{await cloudCall('apiLogout',authToken)}catch(e){}authToken='';authUser=null;lset('easton_auth_token','');lset('easton_auth_user','');location.reload();});
+$('#changePasswordBtn').addEventListener('click',async()=>{const oldPassword=prompt('Masukkan password saat ini:');if(oldPassword===null)return;const newPassword=prompt('Masukkan password baru (minimal 10 karakter):');if(newPassword===null)return;const confirmPassword=prompt('Ulangi password baru:');if(newPassword!==confirmPassword){toast('Konfirmasi password tidak cocok.');return}try{const r=await cloudCall('apiChangePassword',oldPassword,newPassword);if(!r||!r.ok)throw new Error(r&&r.error||'Gagal mengganti password');toast('Password berhasil diganti.')}catch(e){toast(e.message)}});
+async function refreshUsers(){const box=$('#accountList');box.textContent='Memuat akun…';const fmt=v=>v?new Date(v).toLocaleString('id-ID',{dateStyle:'short',timeStyle:'short'}):'—';try{const r=await cloudCall('apiListUsers');if(!r||!r.ok)throw new Error(r&&r.error||'Gagal memuat akun');
+box.innerHTML='<div style="overflow-x:auto"><table class="account-list"><thead><tr><th>Username</th><th>Nama</th><th>Role</th><th>Status</th><th>Login terakhir</th><th>Aksi</th></tr></thead><tbody>'+r.users.map(u=>`<tr><td>${esc(u.username)}</td><td>${esc(u.nama||'—')}</td><td>${esc(u.role)}</td><td>${u.active?'Aktif':'Nonaktif'}</td><td>${esc(fmt(u.lastLogin))}</td><td style="white-space:nowrap"><button class="btn ghost" data-user-reset="${esc(u.username)}">Reset password</button> ${u.username===authUser.username?'':`<button class="btn ghost" data-user-toggle="${esc(u.username)}" data-active="${u.active?'1':'0'}">${u.active?'Nonaktifkan':'Aktifkan'}</button>`}</td></tr>`).join('')+'</tbody></table></div>';
+box.querySelectorAll('[data-user-toggle]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{const x=await cloudCall('apiSetUserStatus',b.dataset.userToggle,b.dataset.active!=='1');if(!x||!x.ok)throw new Error(x&&x.error||'Gagal mengubah status');await refreshUsers()}catch(e){$('#accountMessage').textContent=e.message}finally{b.disabled=false}});
+box.querySelectorAll('[data-user-reset]').forEach(b=>b.onclick=async()=>{const pw=prompt('Password baru untuk "'+b.dataset.userReset+'" (minimal 10 karakter):');if(pw===null)return;b.disabled=true;try{const x=await cloudCall('apiResetPassword',b.dataset.userReset,pw);if(!x||!x.ok)throw new Error(x&&x.error||'Gagal reset password');$('#accountMessage').textContent='Password "'+b.dataset.userReset+'" direset. User wajib menggantinya saat login berikutnya.'}catch(e){$('#accountMessage').textContent=e.message}finally{b.disabled=false}})}catch(e){box.textContent=e.message}}
+$('#accountBtn').addEventListener('click',()=>{$('#accountModal').classList.add('on');$('#accountMessage').textContent='';refreshUsers()});$('#accountClose').addEventListener('click',()=>$('#accountModal').classList.remove('on'));
+$('#accountForm').addEventListener('submit',async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;$('#accountMessage').textContent='Membuat akun…';try{const r=await cloudCall('apiCreateUser',$('#newUsername').value.trim(),$('#newPassword').value,$('#newRole').value,$('#newNama').value.trim());if(!r||!r.ok)throw new Error(r&&r.error||'Gagal membuat akun');$('#accountForm').reset();$('#accountMessage').textContent='Akun berhasil dibuat.';await refreshUsers()}catch(err){$('#accountMessage').textContent=err.message}finally{b.disabled=false}});
+
 function cloudPayload(){return {units,types,name:me,settings:S,baseVersion:cloudVersion||''}}
 function queueCloudSave(){
   if(!cloudReady||!hasCloud())return;
@@ -1258,7 +1504,7 @@ function drawSettings(){
   $('#setDot').value=S.dot;$('#dotVal').textContent=S.dot;$('#setLbl').checked=S.labels;
 }
 // Proyek: nama, lokasi, logo
-let logo='';
+let logo='',loginLogo='';
 function drawBrand(){
   const nm=S.proj||'Nama Proyek';
   $('#pName').textContent=nm;$('#pLoc').textContent=S.loc||'Site Plan QC';
@@ -1267,6 +1513,8 @@ function drawBrand(){
   const g=$('#lgImg'),pv=$('#lgPrev');
   if(logo){g.src=logo;g.style.display='block';pv.innerHTML='<img alt="Logo" src="'+logo+'">'}
   else{g.style.display='none';pv.textContent='Belum ada'}
+  const lp=$('#lgLoginPrev');if(loginLogo)lp.innerHTML='<img alt="Logo login" src="'+loginLogo+'">';else lp.textContent='Pakai logo proyek';
+  const lb={logo:loginLogo||logo,name:S.proj||'',loc:S.loc||''};applyLoginBrand(lb);lset('easton_login_brand',JSON.stringify(lb));
 }
 $('#setProj').onchange=e=>{S.proj=e.target.value.trim();saveState();toast('Nama proyek disimpan')};
 $('#setLoc').onchange=e=>{S.loc=e.target.value.trim();saveState();toast('Lokasi proyek disimpan')};
@@ -1284,6 +1532,13 @@ $('#logoF').onchange=async e=>{
   }catch{toast('Logo tidak dapat dibaca')}
 };
 $('#logoRm').onclick=async()=>{logo='';await idbSet('logo',null);try{await cloudCall('apiRemoveImage','logo')}catch(e){}drawBrand();toast('Logo dihapus');};
+async function logoDataUrl(f){let url=await readFile(f);if(!(/svg/i.test(f.type)||/\.svg$/i.test(f.name))){const im=await loadImg(url),k=Math.min(1,400/Math.max(im.naturalWidth,im.naturalHeight)),c=document.createElement('canvas');c.width=Math.round(im.naturalWidth*k);c.height=Math.round(im.naturalHeight*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);url=c.toDataURL('image/png')}return url}
+$('#loginLogoUp').onclick=()=>$('#loginLogoF').click();
+$('#loginLogoF').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
+  try{const url=await logoDataUrl(f);loginLogo=url;await idbSet('loginlogo',url);
+    try{const r=await cloudCall('apiSaveImage','loginlogo',url);if(!r||!r.ok)throw new Error(r&&r.error||'gagal')}catch(err){drawBrand();toast('Logo login hanya tersimpan di browser: '+err.message);return}
+    drawBrand();toast('Logo halaman login diperbarui')}catch{toast('Logo tidak dapat dibaca')}};
+$('#loginLogoRm').onclick=async()=>{loginLogo='';await idbSet('loginlogo',null);try{await cloudCall('apiRemoveImage','loginlogo')}catch(e){}drawBrand();toast('Logo halaman login dihapus')};
 $('#setName').onchange=e=>{me=e.target.value.trim()||'Inspector QC';saveState();toast('Nama disimpan')};
 $('#setTheme').onchange=e=>{S.theme=e.target.value;saveS()};
 $('#setWarn').onchange=e=>{S.warn=clamp(parseInt(e.target.value)||14,1,365);saveState()};
@@ -1317,6 +1572,7 @@ $('#resetDataBtn').onclick=async()=>{
 // ---------- Navigasi ----------
 const titles={dash:['Dashboard','Pantau progres semua unit & lihat info di site plan'],plan:['Site Plan','Kelola unit, tipe unit, dan titik pada peta'],tbl:['Tabel Unit','Daftar ringkas seluruh unit QC (hanya lihat)'],scurve:['Kurva S','Pantau rencana dan aktual berbobot selama 12 bulan'],set:['Pengaturan','Konfigurasi aplikasi dan data']};
 function go(v){
+  if(authUser&&authUser.role==='Viewer'&&v!=='dash')v='dash'; // Viewer: hanya dashboard
   document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
   document.querySelectorAll('aside button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
   $('#ttl').textContent=titles[v][0];$('#sub').textContent=titles[v][1];
@@ -1347,8 +1603,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closePhotoLightbox()
 // ---------- Init ----------
 $('#today').textContent=today.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 applyTheme();
-(async()=>{
+async function startApp(){
   const connected=await loadCloud();
+  if(connected)cloudCall('apiGetImage','loginlogo').then(r=>{loginLogo=(r&&r.ok&&r.dataUrl)||'';drawBrand()}).catch(()=>{});else idbGet('loginlogo').then(v=>{loginLogo=v||'';drawBrand()});
   if(!connected){
     const saved=(await idbGet('plan'))||lget('qc_plan_img');
     if(saved&&await loadPlan(saved))custom=true;else await loadPlan(DEF);
@@ -1360,7 +1617,23 @@ applyTheme();
     if(!cloudReady||cloudDirty||cloudBusy)return;
     try{const d=await cloudCall('apiGetAll');if(d&&d.ok&&String(d.version||'')!==cloudVersion)await applyCloudData(d,true)}catch(e){}
   },12000);
+}
+(async()=>{
+  loadLoginBrand();
+  if(authToken&&authUser){
+    buildWelcome('Selamat datang kembali',authUser.nama||authUser.username||'');$('#loginScreen').classList.add('checking');let ok=false;
+    try{const test=await cloudCall('apiGetAll');ok=!!(test&&test.ok)}catch(e){}
+    if(ok){setAuthenticated(authUser,authToken,true);try{await enterDashboard(()=>startApp(),900,'Selamat datang kembali');return}catch(e){}}
+  }
+  showLogin();
 })();
+
+// ---- Animasi modern dashboard ----
+function moveNavInd(){const a=document.querySelector('aside'),i=$('#navInd'),b=a&&a.querySelector('button.on');if(!i||!b||!b.offsetWidth)return;i.style.width=b.offsetWidth+'px';i.style.height=b.offsetHeight+'px';i.style.transform='translate('+b.offsetLeft+'px,'+b.offsetTop+'px)';if(!i.classList.contains('ready'))requestAnimationFrame(()=>requestAnimationFrame(()=>i.classList.add('ready')))}
+new MutationObserver(moveNavInd).observe(document.querySelector('aside'),{attributes:true,attributeFilter:['class'],subtree:true});
+addEventListener('resize',moveNavInd);setTimeout(moveNavInd,0);
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
+if('IntersectionObserver' in window&&!reduceMotion){const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.06,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.view>*').forEach(el=>{el.classList.add('rv');io.observe(el)})}
 </script>
 </body>
 </html>
